@@ -21,12 +21,18 @@ const Form = () => {
 
   useEffect(() => {
     if (tg && tg.WebApp) {
-      tg.WebApp.onEvent("mainButtonClicked", onSendData);
+      const handleMainButtonClick = () => {
+        console.log("Main button clicked");
+        onSendData();
+      };
+
+      tg.WebApp.onEvent("mainButtonClicked", handleMainButtonClick);
+
       return () => {
-        tg.WebApp.offEvent("mainButtonClicked", onSendData);
+        tg.WebApp.offEvent("mainButtonClicked", handleMainButtonClick);
       };
     }
-  }, [onSendData]);
+  }, [tg, onSendData]);
 
   useEffect(() => {
     tg.MainButton.setParams({

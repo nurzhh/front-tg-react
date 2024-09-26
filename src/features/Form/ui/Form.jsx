@@ -29,7 +29,7 @@ const Form = () => {
       };
     }
   }, [onSendData, tg]);
-
+// 
   useEffect(() => {
     if (tg) {
       tg.MainButton.setParams({

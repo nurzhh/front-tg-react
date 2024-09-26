@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import "./App.css";
+import "@/shared/styles/App.css";
 import { useTelegram } from "./shared/hooks/useTelegram";
+import { Header } from "./widgets/Header";
 
 function App() {
   const { tg } = useTelegram();
@@ -8,7 +9,11 @@ function App() {
   useEffect(() => {
     tg.ready();
   }, []);
-  return <div className="app">work</div>;
+  return (
+    <div className="app">
+      <Header />
+    </div>
+  );
 }
 
 export default App;

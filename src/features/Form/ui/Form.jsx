@@ -97,7 +97,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import "./styles.css";
-import { useTelegram } from "../../hooks/useTelegram";
+import { useTelegram } from "@/shared/hooks/useTelegram";
 
 const Form = () => {
   const [country, setCountry] = useState("");

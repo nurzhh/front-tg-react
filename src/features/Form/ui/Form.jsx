@@ -20,19 +20,11 @@ const Form = () => {
   }, [formData]);
 
   useEffect(() => {
-    if (tg && tg.WebApp) {
-      const handleMainButtonClick = () => {
-        console.log("Main button clicked");
-        onSendData();
-      };
-
-      tg.WebApp.onEvent("mainButtonClicked", handleMainButtonClick);
-
-      return () => {
-        tg.WebApp.offEvent("mainButtonClicked", handleMainButtonClick);
-      };
-    }
-  }, [tg, onSendData]);
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   useEffect(() => {
     tg.MainButton.setParams({

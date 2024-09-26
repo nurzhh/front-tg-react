@@ -11,8 +11,6 @@ const Form = () => {
   });
 
   const onSendData = useCallback(() => {
-    if (!tg) return;
-
     const data = {
       country: formData.country,
       city: formData.city,
@@ -22,29 +20,23 @@ const Form = () => {
   }, [formData]);
 
   useEffect(() => {
-    if (tg && tg.WebApp) {
-      tg.WebApp.onEvent("mainButtonClicked", onSendData);
-      return () => {
-        tg.WebApp.offEvent("mainButtonClicked", onSendData);
-      };
-    }
+    tg.WebApp.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.WebApp.offEvent("mainButtonClicked", onSendData);
+    };
   }, [onSendData]);
 
   useEffect(() => {
-    if (tg) {
-      tg.MainButton.setParams({
-        text: "Отправить данные",
-      });
-    }
+    tg.MainButton.setParams({
+      text: "Отправить данные",
+    });
   }, []);
 
   useEffect(() => {
-    if (tg) {
-      if (!formData.city || !formData.country) {
-        tg.MainButton.hide();
-      } else {
-        tg.MainButton.show();
-      }
+    if (!formData.city || !formData.country) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
     }
   }, [formData]);
 

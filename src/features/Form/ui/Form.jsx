@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useTelegram } from "@/shared/hooks/useTelegram";
-import "./styles.scss";
+import "./styles.css";
 
 const Form = () => {
   const { tg } = useTelegram();

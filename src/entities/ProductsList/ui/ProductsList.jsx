@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "./styles.css";
 
 const ProductsList = () => {
   return <div>ProductsList</div>;

@@ -19,7 +19,7 @@ const Form = () => {
       subject: formData.subject,
     };
     tg.sendData(JSON.stringify(data));
-  }, [formData, tg]);
+  }, [formData]);
 
   useEffect(() => {
     if (tg && tg.WebApp) {
@@ -28,15 +28,15 @@ const Form = () => {
         tg.WebApp.offEvent("mainButtonClicked", onSendData);
       };
     }
-  }, [onSendData, tg]);
-// 
+  }, [onSendData]);
+
   useEffect(() => {
     if (tg) {
       tg.MainButton.setParams({
         text: "Отправить данные",
       });
     }
-  }, [tg]);
+  }, []);
 
   useEffect(() => {
     if (tg) {
@@ -46,7 +46,7 @@ const Form = () => {
         tg.MainButton.show();
       }
     }
-  }, [formData.country, formData.city, tg]);
+  }, [formData.country, formData.city]);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData((prevData) => ({

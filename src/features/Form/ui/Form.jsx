@@ -20,10 +20,12 @@ const Form = () => {
   }, [formData]);
 
   useEffect(() => {
-    tg.WebApp.onEvent("mainButtonClicked", onSendData);
-    return () => {
-      tg.WebApp.offEvent("mainButtonClicked", onSendData);
-    };
+    if (tg && tg.WebApp) {
+      tg.WebApp.onEvent("mainButtonClicked", onSendData);
+      return () => {
+        tg.WebApp.offEvent("mainButtonClicked", onSendData);
+      };
+    }
   }, [onSendData]);
 
   useEffect(() => {

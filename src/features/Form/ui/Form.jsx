@@ -11,34 +11,42 @@ const Form = () => {
   });
 
   const onSendData = useCallback(() => {
+    if (!tg) return;
+
     const data = {
       country: formData.country,
       city: formData.city,
       subject: formData.subject,
     };
     tg.sendData(JSON.stringify(data));
-  }, [tg, formData]);
+  }, [formData, tg]);
 
   useEffect(() => {
-    tg.WebApp.onEvent("mainButtonClicked", onSendData);
-    return () => {
-      tg.WebApp.offEvent("mainButtonClicked", onSendData);
-    };
-  }, [onSendData, tg.WebApp]);
-
-  useEffect(() => {
-    tg.MainButton.setParams({
-      text: "Отправить данные",
-    });
-  }, [tg.MainButton]);
-
-  useEffect(() => {
-    if (!formData.city || !formData.country) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
+    if (tg && tg.WebApp) {
+      tg.WebApp.onEvent("mainButtonClicked", onSendData);
+      return () => {
+        tg.WebApp.offEvent("mainButtonClicked", onSendData);
+      };
     }
-  }, [formData.country, formData.city, tg.MainButton]);
+  }, [onSendData, tg]);
+
+  useEffect(() => {
+    if (tg) {
+      tg.MainButton.setParams({
+        text: "Отправить данные",
+      });
+    }
+  }, [tg]);
+
+  useEffect(() => {
+    if (tg) {
+      if (!formData.city || !formData.country) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.show();
+      }
+    }
+  }, [formData.country, formData.city, tg]);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData((prevData) => ({
@@ -71,7 +79,7 @@ const Form = () => {
         value={formData.city}
         onChange={handleChange}
         className="input"
-        placeholder="Улица"
+        placeholder="Город"
       />
       <select
         value={formData.subject}

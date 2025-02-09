@@ -86,7 +86,7 @@ export const ResultsPage = () => {
   const sortedScores = Object.entries(result.scores).sort(
     (a, b) => b[1] - a[1]
   );
-
+// 
   return (
     <div className="results-page fade-in">
       <h1>Ваши результаты</h1>

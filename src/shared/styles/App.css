@@ -3,17 +3,17 @@
 
 :root {
   /* 🌑 Основные темные цвета */
-  --color-black: #0D0D0D; /* Глубокий чёрный (фон) */
-  --color-dark-gray: #1A1A1A; /* Тёмно-серый (карточки, блоки) */
-  --color-gray: #2E2E2E; /* Графитовый серый (бордеры, вторичный фон) */
+  --color-black: #0d0d0d; /* Глубокий чёрный (фон) */
+  --color-dark-gray: #1a1a1a; /* Тёмно-серый (карточки, блоки) */
+  --color-gray: #2e2e2e; /* Графитовый серый (бордеры, вторичный фон) */
 
   /* 💚 Акцентные зеленые */
-  --color-green-neon: #00DD88; /* Яркий неоновый зелёный (кнопки, интерактив) */
-  --color-green-dark: #008F5D; /* Глубокий зелёный (ховеры, акценты) */
+  --color-green-neon: #00dd88; /* Яркий неоновый зелёный (кнопки, интерактив) */
+  --color-green-dark: #008f5d; /* Глубокий зелёный (ховеры, акценты) */
 
   /* 🔹 Дополнительные нейтральные оттенки */
-  --color-text-light: #FFFFFF; /* Чистый белый (текст на темном фоне) */
-  --color-text-secondary: #4A4A4A; /* Дымчатый серый (вторичный текст) */
+  --color-text-light: #ffffff; /* Чистый белый (текст на темном фоне) */
+  --color-text-secondary: #4a4a4a; /* Дымчатый серый (вторичный текст) */
 
   /* 🎨 Тени и градиенты */
   --shadow-soft: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -25,11 +25,11 @@
   --border-radius-lg: 16px;
 }
 
-
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--color-black);
   margin: 0;
+  color: white;
   padding: 0;
   min-height: 100vh;
   display: flex;

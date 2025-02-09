@@ -1,4 +1,3 @@
-import React from "react";
 import { useTelegram } from "@/shared/hooks/useTelegram";
 import { Button } from "@/shared/ui/Button/Button";
 import "./styles.css";

@@ -25,6 +25,11 @@
     --border-radius-lg: 16px;
 }
 
+#root {
+    display: flex;
+    justify-content: center;
+}
+
 /*  */
 body {
     font-family: "Roboto", sans-serif;
@@ -93,13 +98,21 @@ input[type="text"]:focus {
 }
 
 .result-card {
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 10px;
     padding: 20px;
     width: 100%;
     margin-top: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.direction {
+    color: var(--color-green-neon);
+    font-size: 28px;
+}
+.resultAnalysis {
+    color: var(--color-text-light);
 }
 
 .profession {

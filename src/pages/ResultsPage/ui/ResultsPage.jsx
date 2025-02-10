@@ -8,37 +8,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Button } from "@/shared/ui/Button/Button.jsx";
+import cn from "classnames";
 
 export const ResultsPage = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   try {
-  //     const storedResults = localStorage.getItem("quizResults");
-
-  //     if (!storedResults) {
-  //       throw new Error("Результаты не найдены в localStorage");
-  //     }
-
-  //     const parsedResults = JSON.parse(storedResults);
-  //     console.log("📌 Полученные данные из localStorage:", parsedResults);
-
-  //     if (
-  //       !parsedResults.direction ||
-  //       !parsedResults.scores ||
-  //       !parsedResults.analysis
-  //     ) {
-  //       throw new Error("Некорректная структура данных результатов");
-  //     }
-
-  //     setResult(parsedResults);
-  //     console.log("✅ Данные успешно переданы в setResult");
-  //   } catch (err) {
-  //     setError(err.message || "Ошибка при загрузке результатов");
-  //   }
-  // }, []);
   useEffect(() => {
     try {
       const storedResults = localStorage.getItem("quizResults");
@@ -127,24 +103,14 @@ export const ResultsPage = () => {
 
   return (
     <div className="results-container">
-      {/* 🔹 "Вы – {Направление}" */}
-      <h1 className="result-title">
-        Вы –{" "}
-        <span className="highlight-green">
-          {getProfessionName(result.direction)}
-        </span>
-      </h1>
-
       <div className="result-card">
-        <p>Наиболее подходящая вам профессия:</p>
-        <div className="profession">{result.direction}</div>
-        <div className="percentage">
-          {result.scores[result.direction.toLowerCase()]}%
+        <p className="text-[28px]">Вы - <span className={cn('direction')}>{result.direction}</span> специалист</p>
+        <div className={cn('mt-4')}>
+          <p className={cn('resultAnalysis')}>{result.analysis}</p>
         </div>
         <p>совместимости</p>
       </div>
 
-      {/* 🔹 Диаграмма (Радар) */}
       <div className="chart-container">
         <ResponsiveContainer width="100%" height={350}>
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
@@ -164,14 +130,6 @@ export const ResultsPage = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* 🔹 Анализ */}
-      <div className="analysis-container">
-        <h2 style={{ fontSize: 22, color: "white", marginBottom: 10 }}>
-          Анализ результатов:
-        </h2>
-        <p>{result.analysis}</p>
-      </div>
-
       <h2
         style={{
           fontSize: 22,
@@ -189,7 +147,9 @@ export const ResultsPage = () => {
         </div>
       ))}
       {/* 🔹 Кнопка */}
-      <Button onClick={handleRetakeQuiz}>Пройти тест снова</Button>
+      <div className="flex justify-center">
+        <Button onClick={handleRetakeQuiz}>Пройти тест снова</Button>
+      </div>
     </div>
   );
 };

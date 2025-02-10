@@ -84,9 +84,9 @@ const QuizPage = () => {
           </Button>
         ) : (
           <Button
-            class
-            onClick={handleSubmit}
-            disabled={currentAnswer.trim() === ""}
+              variant={currentAnswer ? "secondary" : "primary"}
+              onClick={handleSubmit}
+              disabled={currentAnswer.trim() === ""}
           >
             Отправить
           </Button>

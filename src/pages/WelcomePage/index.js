@@ -1,3 +1,3 @@
-import WelcomePage  from './UI/WelcomePage'
+import WelcomePage  from './ui/WelcomePage'
 
 export { WelcomePage }

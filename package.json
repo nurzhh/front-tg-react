@@ -21,6 +21,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
+    "recharts": "^2.15.1",
     "sass": "^1.79.3",
     "tailwindcss": "^4.0.5"
   },

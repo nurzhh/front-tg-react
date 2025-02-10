@@ -1,0 +1,42 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    background-color: var(--color-dark-gray);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    color: var(--color-text-light);
+}
+
+.result-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.highlight-green {
+    color: var(--color-green-neon);
+}
+
+.chart-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.analysis-container {
+    background-color: var(--color-gray);
+    border-radius: var(--border-radius-md);
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.analysis-container h2 {
+    font-size: 18px;
+    color: var(--color-green-neon);
+    margin-bottom: 10px;
+}

@@ -45,7 +45,7 @@ body {
 
 .app {
     max-width: 600px;
-    width: 90%;
+    width: 100%;
     background-color: var(--color-dark-gray);
     border-radius: 20px;
     padding: 30px;

@@ -38,7 +38,7 @@ const QuizPage = () => {
   const postQuiz = async () => {
     try {
       const res = await axios.post(
-        "back-tg-app-production.up.railway.app/api/analyze",
+        "https://back-tg-app-production.up.railway.app/api/analyze",
         { answers },
         {
           headers: { "Content-Type": "application/json" },
